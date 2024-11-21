@@ -8,7 +8,7 @@ import {
 import { reverseGeocoding } from "../reverseGeoconding/ReverseGeocodingUseCase";
 
 export const requestUserLocationPermissions = async (
-  setCurrentLocation: (value: React.SetStateAction<string | null>) => void
+  setInitialLocation: (value: React.SetStateAction<string | null>) => void
 ) => {
   const { granted } = await requestForegroundPermissionsAsync();
   const { granted: backgroundGranted } =
@@ -16,6 +16,6 @@ export const requestUserLocationPermissions = async (
 
   if (granted && backgroundGranted) {
     const currentPosition = await reverseGeocoding();
-    setCurrentLocation(currentPosition.formattedAddress);
+    setInitialLocation(currentPosition.formattedAddress);
   }
 };

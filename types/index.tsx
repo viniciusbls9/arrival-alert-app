@@ -17,17 +17,17 @@ export interface OnboardingProps {
 }
 
 export type HttpRequest = {
-  url: string
-  method: HtppMethod
-  body?: any
-  headers?: any
-}
+  url: string;
+  method: HtppMethod;
+  body?: any;
+  headers?: any;
+};
 
 export interface HttpClient<R = any> {
-  request: (data: HttpRequest) => Promise<HttpResponse<R>>
+  request: (data: HttpRequest) => Promise<HttpResponse<R>>;
 }
 
-export type HtppMethod = 'post' | 'get' | 'put' | 'delete'
+export type HtppMethod = "post" | "get" | "put" | "delete";
 
 export enum HttpStatusCode {
   ok = 200,
@@ -36,10 +36,29 @@ export enum HttpStatusCode {
   unauthorized = 401,
   forbidden = 403,
   notFound = 404,
-  serverError = 500
+  serverError = 500,
 }
 
 export type HttpResponse<T = any> = {
-  statusCode: HttpStatusCode
-  body?: T
+  statusCode: HttpStatusCode;
+  body?: T;
+};
+
+export interface DirectionCoordsProps {
+  lat: number;
+  lng: number;
+}
+
+export interface DirectionProps {
+  routes: {
+    legs: [
+      end_location: {
+        lat: number;
+        lng: number;
+      }
+    ];
+    overview_polyline: {
+      points: string;
+    };
+  }[];
 }

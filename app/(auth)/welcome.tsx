@@ -72,7 +72,7 @@ const Welcome = () => {
               : swiperRef.current?.scrollBy(1)
           }
           title={isLastSlide ? "Get Started" : "Next"}
-          className="w-11/12 mt-10 h-12"
+          className="w-full mt-10 h-12"
         />
       </View>
     </SafeAreaView>

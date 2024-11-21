@@ -14,11 +14,9 @@ const Button = ({
   <TouchableOpacity
     testID="touchable-button"
     onPress={onPress}
-    className={`w-full rounded-full flex flex-row justify-center items-center shadow-md shadow-neutral-400/70 bg-primary-500 ${className}`}
+    className={`flex flex-row justify-center items-center shadow-md shadow-neutral-400/70 bg-primary-500 ${className}`}
   >
-    <Text className="text-lg font-bold text-white">
-      {title}
-    </Text>
+    <Text className="text-lg font-bold text-primary-100">{title}</Text>
   </TouchableOpacity>
 );
 

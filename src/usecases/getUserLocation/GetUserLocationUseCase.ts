@@ -1,14 +1,24 @@
-import { watchPositionAsync, LocationAccuracy } from "expo-location";
+import {
+  watchPositionAsync,
+  LocationAccuracy,
+  LocationSubscription,
+} from "expo-location";
 
-export const getUserLocation = ({ callback }: { callback: Function }) => {
-  watchPositionAsync(
+export const getUserLocation = async ({
+  callback,
+}: {
+  callback: Function;
+}): Promise<LocationSubscription> => {
+  const position = await watchPositionAsync(
     {
       accuracy: LocationAccuracy.Highest,
-      timeInterval: 1000,
-      distanceInterval: 1,
+      timeInterval: 5000,
+      distanceInterval: 10,
     },
     (response) => {
       callback(response);
-    },
+    }
   );
+
+  return position;
 };
